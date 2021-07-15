@@ -36,5 +36,6 @@ class Product implements JsonSerializable {
 		public function setNumero($numero_locataire){
 					$this->_numero_locataire = $numero_locataire;
 		}
+		
 }
 ?>

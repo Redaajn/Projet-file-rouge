@@ -117,6 +117,7 @@ class CrudProduct extends React.Component {
                                     onSubmit={this.addproduct.bind(this)}>
 
 
+
                                     <div className="form-row">
                                         <div className="col-12">
                                             <label htmlFor="inputName4">Name</label>

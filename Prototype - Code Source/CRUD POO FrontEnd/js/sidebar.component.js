@@ -30,8 +30,20 @@ class SideBar extends React.Component {
                  with font-awesome or any other icon font library */}
                   <li className="nav-item">
                     <a href="ouvriers.html" className="nav-link">
-                      <i className="nav-icon fas fa-tachometer-alt" />
-                      <p>Ouvriers</p>
+                      <i className="nav-icon fas fa-user" />
+                      <p>Locataire</p>
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a href="appartement.html" className="nav-link">
+                      <i className="nav-icon fas fa-building" />
+                      <p>Appartement</p>
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a href="Location.html" className="nav-link">
+                      <i className="nav-icon fas fa-hand-holding-usd" />
+                      <p>Location</p>
                     </a>
                   </li>
                 </ul>
