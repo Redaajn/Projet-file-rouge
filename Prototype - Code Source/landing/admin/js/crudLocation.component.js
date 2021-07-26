@@ -1,5 +1,5 @@
 // Application
-class CrudProduct extends React.Component {
+class CrudLocation extends React.Component {
     constructor(props) {
         super(props)
 
@@ -16,7 +16,7 @@ class CrudProduct extends React.Component {
 
         // affichage de données par Ajax
 
-        $.getJSON("api/getProduct.php",
+        $.getJSON("../admin/api/getProduct.php",
             function (data) {
                 this.setState({ productsArray: data });
             }.bind(this))
@@ -45,7 +45,7 @@ class CrudProduct extends React.Component {
     // Remove product
     removeproduct(i) {
         $.ajax({
-            url: "http://localhost/landing/admin/api/deleteProduct.php",
+            url: "../admin/api/deleteProduct.php",
             method: "POST",
             data: {
                 idlocataires: i
@@ -55,12 +55,11 @@ class CrudProduct extends React.Component {
                 this.chargementDonnees()
             }.bind(this)
         })
-
     }
     //update product
     updateproduct(i) {
         $.ajax({
-            url: "http://localhost/landing/admin/api/updateProduct.php",
+            url: "../admin/api/updateProduct.php",
             method: "POST",
             data: {
                 idlocataires: i,

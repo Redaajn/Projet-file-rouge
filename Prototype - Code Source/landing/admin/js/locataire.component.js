@@ -1,4 +1,4 @@
-class Product extends React.Component {
+class Locataire extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -7,8 +7,8 @@ class Product extends React.Component {
 
         return (
                 <tr>
-              <td scope="row">{this.props.product.nom_locataire}</td>
-              <td>{this.props.product.numero_locataire}</td>
+              <td scope="row">{this.props.locataire.nom_locataire}</td>
+              <td>{this.props.locataire.numero_locataire}</td>
               <td></td>
               <td>
           <button type="button" className="btn btn-success ml-5" onClick={this.props.onClickUpdate} data-toggle="modal" data-target="#exampleModalCenter1">

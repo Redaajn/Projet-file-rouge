@@ -1,13 +1,12 @@
 <?php
 
-class Product implements JsonSerializable {
+class Locataire implements JsonSerializable {
 	public function jsonSerialize()
     {
         return array(
 			 'idlocataires' => $this->_idlocataires,
-             'nom_locataire' => $this->_nom_locataire,
+			 'nom_locataire' => $this->_nom_locataire,             
              'numero_locataire' => $this->_numero_locataire,
-             
         );
     }
 	private $_idlocataires;
@@ -20,8 +19,9 @@ class Product implements JsonSerializable {
 	// 	$this->fill($data);
 	// }
 		public function getId() { return $this->_idlocataires; }
-		public function getNom() { return $this->_nom_locataire; }
 		public function getNumero() { return $this->_numero_locataire; }
+		public function getNom() { return $this->_nom_locataire; }
+
 		
 
 
@@ -29,12 +29,12 @@ class Product implements JsonSerializable {
 			$this->_idlocataires = (int) $idlocataires;
 		}
 
-		public function setNom($nom_locataire){	
-					$this->_nom_locataire = $nom_locataire;
+		public function setNumero($numero_locataire){	
+					$this->_numero_locataire = $numero_locataire;
 			
 		}
-		public function setNumero($numero_locataire){
-					$this->_numero_locataire = $numero_locataire;
+		public function setNom($nom_locataire){
+					$this->_nom_locataire = $nom_locataire;
 		}
 		
 }

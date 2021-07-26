@@ -43,6 +43,7 @@ form{
 
 .login-content img{
     height: 100px;
+	border-radius: 100px;
 }
 
 .login-content h2{
@@ -174,7 +175,11 @@ a:hover{
 .btn:hover{
 	background-position: right;
 }
-
+.img .logo{
+	height: 293px;
+    width: 250px;
+    margin-right: 139px;
+}
 
 @media screen and (max-width: 1050px){
 	.container{

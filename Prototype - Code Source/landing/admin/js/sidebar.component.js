@@ -6,28 +6,19 @@ class SideBar extends React.Component {
     render() {
 
         return (
-            <aside className="main-sidebar sidebar-dark-primary elevation-4">
+            <aside className="main-sidebar sidebar-dark-primary elevation-4 align-items-center">
             {/* Brand Logo */}
-              <img src="../dist/img/logo.png" alt="Logo" className="brand-image img-circle elevation-3" style={{opacity: '.8'}} />
-              <span className="brand-text font-weight-light">Gestion location</span>
+            <img src="../admin/dist/img/logo.png" alt="Logo" classname="brand-image img-circle" style={{opacity: '0.8'}}  width={80} height={80} />
+              <span className="brand-text text-white ml-3 font-weight-light">Gestion location</span>
+<hr className=" bg-white mt-1 border"/>
             {/* Sidebar */}
             <div className="sidebar">
-              {/* Sidebar user (optional) */}
-              <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div className="image">
-                  <img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User Image" />
-                </div>
-                <div className="info">
-                  <a href="#" className="d-block">AJendouz Med Reda</a>
-                </div>
-              </div>
-              {/* Sidebar Menu */}
-              <nav className="mt-2">
+              <nav className="mt-3">
                 <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                   {/* Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library */}
                   <li className="nav-item">
-                    <a href="ouvriers.html" className="nav-link">
+                    <a href="locataire.html" className="nav-link">
                       <i className="nav-icon fas fa-user" />
                       <p>Locataire</p>
                     </a>
@@ -39,7 +30,7 @@ class SideBar extends React.Component {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="Location.html" className="nav-link">
+                    <a href="location.html" className="nav-link">
                       <i className="nav-icon fas fa-hand-holding-usd" />
                       <p>Location</p>
                     </a>

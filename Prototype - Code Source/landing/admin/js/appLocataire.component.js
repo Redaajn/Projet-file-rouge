@@ -1,4 +1,4 @@
-class AppLocation extends React.Component {
+class AppLocataire extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -9,7 +9,7 @@ class AppLocation extends React.Component {
             <div>   
       {/* Site wrapper */}
       <div className="wrapper">
-          <MenuAppartement />
+          <MenuLocataire />
 
           <SideBar />
 
@@ -28,19 +28,16 @@ class AppLocation extends React.Component {
           <section className="content">
             {/* Default box */}
             <div className="card">
-              <div className="card-header row">
-                <h3 className="card-title col-6">Location</h3>
+              <div className="card-header row align-items-center">
+                <h3 className="card-title col-6">Locataires</h3>
                 <div className="col-6 text-right">
                     <button type="button" className="btn btn-primary add-btn" data-toggle="modal" data-target="#exampleModalCenter" id="addnewbtn">AJOUTER</button>
                 </div>
               </div>
               <div className="card-body">
+                <CrudLocataire />
               </div>
               {/* /.card-body */}
-              <div className="card-footer">
-                Footer
-              </div>
-              {/* /.card-footer*/}
             </div>
             {/* /.card */}
           </section>

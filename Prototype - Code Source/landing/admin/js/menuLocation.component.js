@@ -1,4 +1,4 @@
-class MenuAppartement extends React.Component {
+class MenuLocation extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -12,7 +12,7 @@ class MenuAppartement extends React.Component {
             <a className="nav-link text-secondary" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
           </li>
           <li className="nav-item d-none d-sm-inline-block">
-            <a href="appartement.html" className="nav-link text-secondary">Gestion Location</a>
+            <a href="location.html" className="nav-link text-secondary">Gestion Location</a>
           </li>
         </ul>
         </div>
