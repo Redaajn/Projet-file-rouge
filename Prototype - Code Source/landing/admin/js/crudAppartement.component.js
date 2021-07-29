@@ -49,7 +49,7 @@ class CrudAppartement extends React.Component {
             url: "../admin/apiAppartement/deleteAppartement.php",
             method: "POST",
             data: {
-                idappartements: i
+                numero_appartement: i
             },
             success: function (data) {
                 //   $(this).parent().remove();
@@ -121,16 +121,27 @@ class CrudAppartement extends React.Component {
 
                                     <div className="form-row">
                                         <div className="col-12">
-                                            <label htmlFor="inputName4">Name</label>
-                                            <input type="text" className="form-control nom_locataire" id="ajouternom_locataire" placeholder="Name" />
+                                            <label htmlFor="inputName4">N° Appartement</label>
+                                            <input type="text" className="form-control numero_appartement" id="ajouternumero_appartement" placeholder="ajouter numero appartement" />
                                         </div>
                                     </div>
                                     <div className="form-row">
                                         <div className="col-12">
-                                            <label htmlFor="inputLast4">Phone number</label>
-                                            <input type="text" className="form-control numero_locataire" id="ajouternumero_locataire" placeholder="Phone number" />
+                                            <label htmlFor="inputLast4">Prix de location</label>
+                                            <input type="text" className="form-control prix_location" id="ajouterprix_location" placeholder="Ajouter prix de location" />
                                         </div>
                                     </div>
+
+                                    <div className="form-row">
+                                        <div className="col-12">
+                                            <label htmlFor="inputLast4">Etat d'appartement</label>
+                                            <select className="custom-select etat_appartement" id="ajouteretat_appartement" aria-label="" >
+                                                <option>Vide</option>
+                                                <option>Pleine</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div className="input-group-btn mt-4">
                                         <button type="submit" className="btn btn-primary submit ">Add locataire</button>
 

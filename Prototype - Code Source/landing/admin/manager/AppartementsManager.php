@@ -23,10 +23,10 @@ class AppartementsManager {
 //Add Appartement
 		public function add($appartement){
 			$dbh = new PDO("mysql:host=localhost;dbname=gestion_location","root","Tanger123");
-			$req = "INSERT INTO `appartements`(`idappartement`,`numero_appartement`, `prix_location`, `etat_appartement`) VALUES (:idappartement,:numero_appartement,:prix_location ,:etat_appartement)";
+			$req = "INSERT INTO `appartements`(`idappartements`,`numero_appartement`, `prix_location`, `etat_appartement`) VALUES (:idappartements,:numero_appartement,:prix_location ,:etat_appartement)";
 
 			$addAppartementQuery = $dbh ->prepare($req);
-			$addAppartementQuery -> bindParam(":idappartement",$appartement->getIdAppartement(),PDO::PARAM_STR);	
+			$addAppartementQuery -> bindParam(":idappartements",$appartement->getIdAppartement(),PDO::PARAM_STR);	
 			$addAppartementQuery -> bindParam(":numero_appartement",$appartement->getNumeroAppartement(),PDO::PARAM_STR);
             $addAppartementQuery -> bindParam(":prix_location",$appartement->getPrixLocation(),PDO::PARAM_STR);
 			$addAppartementQuery -> bindParam(":etat_appartement",$appartement->getEtatAppartement(),PDO::PARAM_STR);
@@ -36,8 +36,9 @@ class AppartementsManager {
 		// delete Appartement
 
 		public function delete($id){
+			
 			$dbh = new PDO("mysql:host=localhost;dbname=gestion_location","root","Tanger123");
-			$req = "DELETE FROM appartements WHERE idappartements = $id";
+			$req = "DELETE FROM appartements WHERE idappartements = 5";
 			$deleteAppartement = $dbh->prepare($req);
             $deleteAppartement->execute();
         }

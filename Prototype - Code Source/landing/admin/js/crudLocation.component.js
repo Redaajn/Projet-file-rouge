@@ -4,7 +4,7 @@ class CrudLocation extends React.Component {
         super(props)
 
         this.state = {
-            productsArray: []
+            locationArray: []
         };
     }
     componentDidMount() {
@@ -12,194 +12,81 @@ class CrudLocation extends React.Component {
     }
     chargementDonnees() {
 
-        var productsArray = null;
+        var locationArray = null;
 
         // affichage de données par Ajax
 
-        $.getJSON("../admin/api/getProduct.php",
+        $.getJSON("../admin/apiLocation/getLocations.php",
             function (data) {
-                this.setState({ productsArray: data });
+                this.setState({ locationArray: data });
             }.bind(this))
             .fail(function (jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown);
             });
     }
-    //add product
-    addproduct(e) {
-        $.ajax({
-            url: "http://localhost/landing/admin/api/addProduct.php",
+
+    updateLocation(i, status, ) {
+        if (status != 1) {
+          $.ajax({
+            url: "apiLocation/getLocations.php",
             method: "POST",
             data: {
-                nom_locataire: ajouternom_locataire.value,
-                numero_locataire: ajouternumero_locataire.value,
-
+              idPointage: i,
+              presence: 1,
+              nombreHeure:8,
             },
             success: function (data) {
-                this.chargementDonnees()
-                $("#exampleModalCenter").modal('hide');
-                console.log(data)
+              this.chargementDonnees()
             }.bind(this)
-        })
-        e.preventDefault();
-    }
-    // Remove product
-    removeproduct(i) {
-        $.ajax({
-            url: "../admin/api/deleteProduct.php",
+          })
+        } else {
+          $.ajax({
+            url: "apiPointage/updatePointage.php",
             method: "POST",
             data: {
-                idlocataires: i
+                idPointage: i,
+                presence: 0
             },
             success: function (data) {
-                //   $(this).parent().remove();
-                this.chargementDonnees()
+              this.chargementDonnees()
             }.bind(this)
-        })
-    }
-    //update product
-    updateproduct(i) {
-        $.ajax({
-            url: "../admin/api/updateProduct.php",
-            method: "POST",
-            data: {
-                idlocataires: i,
-                nom_locataire: editernom_locataire.value,
-                numero_locataire: editernumero_locataire.value,
-
-
-            },
-            success: function (data) {
-                this.chargementDonnees()
-                console.log(data)
-            }.bind(this)
-        })
-        e.preventDefault();
-    }
-
-
-
-
+          })
+        }
+      }
 
 
     onChangeInput(e) {
         // this.setState({value: e.target.value})
     }
 
+
+
     render() {
-        let productsArray = this.state.productsArray.map((product) => {
+        let locationArray = this.state.locationArray.map((location) => {
             return (
-                <Product
-                    key={product.idlocataires}
-                    product={product}
-                    onClickClose={this.removeproduct.bind(this, product.idlocataires)}
-                    onClickUpdate={this.updateproduct.bind(this, product.idlocataires)}
+                <Location
+                    key={location.idlocations}
+                    location={location}
+                    onClickUpdate={this.updateLocation.bind(this, location.idlocations)}
                 />
             )
         })
 
         return (
             <div className="container">
-                {/* ADD Model */}
-                <div className="modal fade" id="exampleModalCenter" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div className="modal-dialog modal-dialog-centered" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <form
-                                    id="form-add"
-                                    className="form-horizontal"
-                                    onSubmit={this.addproduct.bind(this)}>
-
-
-
-                                    <div className="form-row">
-                                        <div className="col-12">
-                                            <label htmlFor="inputName4">Name</label>
-                                            <input type="text" className="form-control nom_locataire" id="ajouternom_locataire" placeholder="Name" />
-                                        </div>
-                                    </div>
-                                    <div className="form-row">
-                                        <div className="col-12">
-                                            <label htmlFor="inputLast4">Phone number</label>
-                                            <input type="text" className="form-control numero_locataire" id="ajouternumero_locataire" placeholder="Phone number" />
-                                        </div>
-                                    </div>
-                                    <div className="input-group-btn mt-4">
-                                        <button type="submit" className="btn btn-primary submit ">Add locataire</button>
-
-                                    </div>
-                                </form>
-                            </div>
-                            <div className="modal-footer">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-                {/* UPDATE Model */}
-                <div className="modal fade" id="exampleModalCenter1" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div className="modal-dialog modal-dialog-centered" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <form
-                                    id="form-update"
-                                    className="form-horizontal"
-                                    onSubmit={this.updateproduct.bind(this)}>
-
-
-                                    <div className="form-row">
-                                        <div className="col-12">
-                                            <label htmlFor="inputName4">Name</label>
-                                            <input type="text" className="form-control nom_locataire" id="editernom_locataire" placeholder="Name" />
-                                        </div>
-                                    </div>
-                                    <div className="form-row">
-                                        <div className="col-12">
-                                            <label htmlFor="inputLast4">Phone number</label>
-                                            <input type="text" className="form-control numero_locataire" id="editernumero_locataire" placeholder="Phone number" />
-                                        </div>
-                                    </div>
-                                    <div className="input-group-btn mt-4">
-                                        <button type="submit" className="btn btn-success submit ">Update locataire</button>
-
-                                    </div>
-                                </form>
-                            </div>
-                            <div className="modal-footer">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <table className="table table-hover">
-                    <thead className="thead">
+          <table className="table table-hover">
+                    <thead className="thead text-center">
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Phone Number</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
+                            <th scope="col">Nom de locataire</th>
+                            <th scope="col">N° d'appartement</th>
+                            <th scope="col">Mois de paiement</th>
+                            <th scope="col">Etat de paiement</th>
 
 
                         </tr>
                     </thead>
                     <tbody>
-                        {productsArray}
+                        {locationArray}
                     </tbody>
                 </table>
             </div>
